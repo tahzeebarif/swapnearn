@@ -1,0 +1,430 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  @apply font-sans text-gray-800 antialiased;
+  background-color: #f2ede3;
+}
+
+img {
+  max-width: 100%;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  /* 3D Primary Button */
+  .btn-primary {
+    @apply btn bg-brand text-white;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 0 #0d3220, 0 8px 16px rgba(27, 94, 59, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #0d3220, 0 12px 20px rgba(27, 94, 59, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #0d3220, 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 3D Outline Button */
+  .btn-outline {
+    @apply btn border-2 border-brand text-brand bg-white;
+    box-shadow: 0 3px 0 #1b5e3b, 0 6px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-outline:hover {
+    @apply bg-brand text-white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 #0d3220, 0 10px 16px rgba(27, 94, 59, 0.25);
+  }
+
+  .btn-outline:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #0d3220;
+  }
+
+  .btn-light {
+    @apply btn bg-white text-brand;
+    box-shadow: 0 3px 0 #e5e7eb, 0 6px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .btn-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 #d1d5db, 0 10px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-light:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #d1d5db;
+  }
+
+  /* 3D Elevated Card */
+  .card-3d {
+    background: #ffffff;
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-bottom: 3px solid rgba(209, 213, 219, 0.9);
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.06), 0 3px 6px -2px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px -6px rgba(0, 0, 0, 0.12), 0 6px 12px -3px rgba(0, 0, 0, 0.05);
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm shadow-inner focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 3D Tactile Buttons */
+  .btn-3d {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    border-radius: 9999px;
+    padding: 0.85rem 1.75rem;
+    transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.2s ease;
+    will-change: transform, box-shadow;
+  }
+
+  /* 3D Brand Emerald */
+  .btn-3d-emerald {
+    background: linear-gradient(180deg, #237b4e 0%, #1b5e3b 45%, #144b2f 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow:
+      0 5px 0 #0d3220,
+      0 6px 1px rgba(0, 0, 0, 0.1),
+      0 12px 20px -3px rgba(27, 94, 59, 0.38),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.22);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-3d-emerald:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #288c58 0%, #1e6942 45%, #165334 100%);
+    box-shadow:
+      0 7px 0 #0d3220,
+      0 8px 2px rgba(0, 0, 0, 0.12),
+      0 18px 28px -3px rgba(27, 94, 59, 0.48),
+      inset 0 1.5px 2px rgba(255, 255, 255, 0.6),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-3d-emerald:active:not(:disabled),
+  .btn-3d-emerald.is-pressed {
+    transform: translateY(4px);
+    box-shadow:
+      0 1px 0 #0d3220,
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      0 4px 8px rgba(27, 94, 59, 0.25),
+      inset 0 1px 2px rgba(0, 0, 0, 0.25),
+      inset 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  /* 3D Sleek Obsidian Dark (as seen in product pages) */
+  .btn-3d-dark {
+    background: linear-gradient(180deg, #2b303c 0%, #1a1d24 50%, #111317 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow:
+      0 5px 0 #07080a,
+      0 6px 1px rgba(0, 0, 0, 0.2),
+      0 12px 22px -3px rgba(0, 0, 0, 0.45),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+
+  .btn-3d-dark:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #373e4d 0%, #22262f 50%, #16181d 100%);
+    box-shadow:
+      0 7px 0 #07080a,
+      0 8px 2px rgba(0, 0, 0, 0.25),
+      0 18px 28px -3px rgba(0, 0, 0, 0.55),
+      inset 0 1.5px 2px rgba(255, 255, 255, 0.45),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-3d-dark:active:not(:disabled),
+  .btn-3d-dark.is-pressed {
+    transform: translateY(4px);
+    box-shadow:
+      0 1px 0 #07080a,
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 10px rgba(0, 0, 0, 0.35),
+      inset 0 1px 2px rgba(0, 0, 0, 0.35),
+      inset 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 3D Success Added State */
+  .btn-3d-success {
+    background: linear-gradient(180deg, #10b981 0%, #059669 50%, #047857 100%) !important;
+    box-shadow:
+      0 4px 0 #065f46,
+      0 10px 20px rgba(16, 185, 129, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* Shimmer Glint Sweep */
+  .btn-3d::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.22) 50%,
+        rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    pointer-events: none;
+    border-radius: inherit;
+    transition: left 0.75s ease;
+  }
+
+  .btn-3d:hover::after {
+    left: 150%;
+  }
+
+  /* Tactile Quantity Pill */
+  .quantity-pill-3d {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+      inset 0 1.5px 3px rgba(0, 0, 0, 0.08),
+      0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .quantity-btn-3d {
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+  }
+
+  .quantity-btn-3d:active:not(:disabled) {
+    transform: scale(0.9);
+  }
+
+  /* 3D Warm Terracotta / Rust Button (as seen in screenshot ORDER NOW) */
+  .btn-3d-rust {
+    background: linear-gradient(180deg, #d96839 0%, #c25424 50%, #a83d12 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow:
+      0 4px 0 #7c2d12,
+      0 5px 1px rgba(0, 0, 0, 0.15),
+      0 10px 18px -3px rgba(194, 84, 36, 0.4),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.4),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-3d-rust:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #e47546 0%, #cc5a2a 50%, #b34316 100%);
+    box-shadow:
+      0 6px 0 #7c2d12,
+      0 7px 2px rgba(0, 0, 0, 0.2),
+      0 14px 24px -3px rgba(194, 84, 36, 0.5),
+      inset 0 1.5px 2px rgba(255, 255, 255, 0.5),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-3d-rust:active:not(:disabled),
+  .btn-3d-rust.is-pressed {
+    transform: translateY(3px);
+    box-shadow:
+      0 1px 0 #7c2d12,
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      0 4px 8px rgba(194, 84, 36, 0.3),
+      inset 0 1px 2px rgba(0, 0, 0, 0.25),
+      inset 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ============================================================
+   PREMIUM 3D & ANIMATION UTILITIES
+   Added for advanced visual effects — do not remove
+   ============================================================ */
+
+/* ── Reduced-motion: respect user preference ── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── 3D perspective container ── */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* ── Product card 3D tilt base ── */
+.card-tilt {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-tilt:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(27, 94, 59, 0.06);
+}
+
+/* ── Premium shimmer on placeholder images ── */
+.shimmer-bg {
+  background: linear-gradient(90deg,
+      #e8f5e9 25%,
+      #d4edda 50%,
+      #e8f5e9 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+/* ── Floating blob shape ── */
+.blob-shape {
+  border-radius: 71% 29% 63% 37% / 55% 42% 58% 45%;
+}
+
+.blob-shape-2 {
+  border-radius: 42% 58% 37% 63% / 45% 55% 45% 55%;
+}
+
+/* ── Glass card effect ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ── Gradient text ── */
+.text-gradient-green {
+  background: linear-gradient(135deg, #1b5e3b 0%, #2fa482 50%, #c8a24a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Hero noise texture overlay ── */
+.hero-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+/* ── Scroll-reveal base (JS controlled via Framer) ── */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* ── Premium section divider wave ── */
+.wave-divider svg {
+  display: block;
+}
+
+/* ── Button glow pulse ── */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, #1b5e3b, #2fa482, #c8a24a, #1b5e3b);
+  z-index: -1;
+  animation: spinSlow 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-glow:hover::after {
+  opacity: 1;
+}
+
+/* ── Ring pulse for badges ── */
+.ring-pulse-green {
+  animation: ringPulse 2s ease-out infinite;
+  box-shadow: 0 0 0 0 rgba(27, 94, 59, 0.4);
+}
+
+/* ── Sticky header backdrop ── */
+header.scrolled {
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Product image placeholder ── */
+.product-img-placeholder {
+  background: linear-gradient(135deg, #ede8df 0%, #e2dbd0 40%, #d8d0c4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 60%);
+  animation: shimmer 2.2s linear infinite;
+  background-size: 200% 100%;
+}
+
+/* ── Smooth number counter ── */
+.stat-number {
+  display: inline-block;
+  animation: countUp 0.6s ease both;
+}
